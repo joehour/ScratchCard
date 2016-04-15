@@ -29,6 +29,7 @@ public class ScratchView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.Init()
+        
     }
     
     init(frame: CGRect, MaskImage: String, ScratchWidth: CGFloat) {
