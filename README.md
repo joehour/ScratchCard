@@ -37,9 +37,9 @@ Then run:
 ##Scratched Percent
 It is easy to know the scratched percent.
  
-####Example
+######Example
   
-         let scratch_percent:Double = ScratchCard.getScarachPercent()
+    let scratch_percent:Double = ScratchCard.getScarachPercent()
       
 
 ##License
