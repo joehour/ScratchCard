@@ -289,6 +289,7 @@
 				B4FDC4C51CC0C1FB00D6B52C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
