@@ -1,5 +1,5 @@
 # ScratchCard
-![minipic](https://raw.githubusercontent.com/joehour/ScratchCard/master/ScratchCard/result.jpg width="200px" height="200px")
+![minipic](https://raw.githubusercontent.com/joehour/ScratchCard/master/ScratchCard/result.jpg =100x20)
 
 ## Installation
 
