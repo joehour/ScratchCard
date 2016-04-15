@@ -10,8 +10,6 @@
 		B4FDC4BF1CC0C1FB00D6B52C /* ScratchCard.h in Headers */ = {isa = PBXBuildFile; fileRef = B4FDC4BE1CC0C1FB00D6B52C /* ScratchCard.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B4FDC4C71CC0C28700D6B52C /* ScratchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FDC4C61CC0C28700D6B52C /* ScratchView.swift */; };
 		B4FDC4C91CC0C2EE00D6B52C /* ScratchUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FDC4C81CC0C2EE00D6B52C /* ScratchUIView.swift */; };
-		B4FDC4F81CC0E60200D6B52C /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = B4FDC4F61CC0E60100D6B52C /* LICENSE */; };
-		B4FDC4F91CC0E60200D6B52C /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = B4FDC4F71CC0E60100D6B52C /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,8 +18,6 @@
 		B4FDC4C01CC0C1FB00D6B52C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4FDC4C61CC0C28700D6B52C /* ScratchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScratchView.swift; sourceTree = "<group>"; };
 		B4FDC4C81CC0C2EE00D6B52C /* ScratchUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScratchUIView.swift; sourceTree = "<group>"; };
-		B4FDC4F61CC0E60100D6B52C /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		B4FDC4F71CC0E60100D6B52C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,8 +34,6 @@
 		B4FDC4B11CC0C1FB00D6B52C = {
 			isa = PBXGroup;
 			children = (
-				B4FDC4F61CC0E60100D6B52C /* LICENSE */,
-				B4FDC4F71CC0E60100D6B52C /* README.md */,
 				B4FDC4BD1CC0C1FB00D6B52C /* ScratchCard */,
 				B4FDC4BC1CC0C1FB00D6B52C /* Products */,
 			);
@@ -132,7 +126,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4FDC4F81CC0E60200D6B52C /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,7 +136,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4FDC4F91CC0E60200D6B52C /* README.md in Sources */,
 				B4FDC4C71CC0C28700D6B52C /* ScratchView.swift in Sources */,
 				B4FDC4C91CC0C2EE00D6B52C /* ScratchUIView.swift in Sources */,
 			);
