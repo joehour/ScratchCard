@@ -1,6 +1,6 @@
 # ScratchCard
 ![](https://raw.githubusercontent.com/joehour/ScratchCard/master/ScratchCard/result.jpg =100x20)
-
+src="https://raw.githubusercontent.com/joehour/ScratchCard/master/ScratchCard/result.jpg" width="200" height="400" />
 ## Installation
 
 #### CocoaPods
