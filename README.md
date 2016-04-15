@@ -8,11 +8,11 @@ Check out [Get Started](https://guides.cocoapods.org/using/getting-started.html)
 
 To use SwiftHTTP in your project add the following 'Podfile' to your project
 
-	source 'https://github.com/CocoaPods/Specs.git'
+	source 'https://github.com/joehour/ScratchCard.git'
 	platform :ios, '8.0'
 	use_frameworks!
 
-	pod 'SwiftHTTP', '~> 1.0.4'
+	pod 'ScratchCard', '~> 1.0.1'
 
 Then run:
 
