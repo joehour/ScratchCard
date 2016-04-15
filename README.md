@@ -35,7 +35,7 @@ Then run:
     }
 
 ##Scratched Percent
-It is easy to know the scratched percent.
+It is easy to get the scratched percent.
  
 ######Example
   
