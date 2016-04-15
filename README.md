@@ -34,7 +34,15 @@ Then run:
         }
     }
 
+##Scratched Percent
+It is easy to know the scratched percent.
+Using the getScarachPercent function to get the scratched percent 
+
+####Example
   
+   let scratch_percent:Double = ScratchCard.getScarachPercent()
+        
+
 ##License
 ScratchCard is available under the MIT License.
 
