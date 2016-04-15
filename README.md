@@ -31,10 +31,9 @@ Then run:
         
         ScratchCard  = ScratchUIView(frame: CGRectMake(50, 80, 320, 480),Coupon: "coupon image", MaskImage: "mask image", ScratchWidth: CGFloat(40))
         self.view.addSubview(ScratchCard)
-        
+        }
     }
 
-   }
   
 ##License
 ScratchCard is available under the MIT License.
