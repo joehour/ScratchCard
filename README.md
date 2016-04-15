@@ -1,5 +1,5 @@
 # ScratchCard
-![image](https://raw.githubusercontent.com/joehour/ScratchCard/master/ScratchCard/result.jpg)
+###![image](https://raw.githubusercontent.com/joehour/ScratchCard/master/ScratchCard/result.jpg)
 
 ## Installation
 
