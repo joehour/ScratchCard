@@ -8,12 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		B4FDC4BF1CC0C1FB00D6B52C /* ScratchCard.h in Headers */ = {isa = PBXBuildFile; fileRef = B4FDC4BE1CC0C1FB00D6B52C /* ScratchCard.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B4FDC4C71CC0C28700D6B52C /* ScratchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FDC4C61CC0C28700D6B52C /* ScratchView.swift */; };
+		B4FDC4C91CC0C2EE00D6B52C /* ScratchUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FDC4C81CC0C2EE00D6B52C /* ScratchUIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B4FDC4BB1CC0C1FB00D6B52C /* ScratchCard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ScratchCard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4FDC4BE1CC0C1FB00D6B52C /* ScratchCard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScratchCard.h; sourceTree = "<group>"; };
 		B4FDC4C01CC0C1FB00D6B52C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B4FDC4C61CC0C28700D6B52C /* ScratchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScratchView.swift; sourceTree = "<group>"; };
+		B4FDC4C81CC0C2EE00D6B52C /* ScratchUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScratchUIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +52,8 @@
 			children = (
 				B4FDC4BE1CC0C1FB00D6B52C /* ScratchCard.h */,
 				B4FDC4C01CC0C1FB00D6B52C /* Info.plist */,
+				B4FDC4C61CC0C28700D6B52C /* ScratchView.swift */,
+				B4FDC4C81CC0C2EE00D6B52C /* ScratchUIView.swift */,
 			);
 			path = ScratchCard;
 			sourceTree = "<group>";
@@ -130,6 +136,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4FDC4C71CC0C28700D6B52C /* ScratchView.swift in Sources */,
+				B4FDC4C91CC0C2EE00D6B52C /* ScratchUIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,28 +236,33 @@
 		B4FDC4C41CC0C1FB00D6B52C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = ScratchCard/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = joe.ScratchCard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		B4FDC4C51CC0C1FB00D6B52C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = ScratchCard/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = joe.ScratchCard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
