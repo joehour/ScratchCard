@@ -36,12 +36,20 @@ Then run:
 
 ##Scratched Percent
 It is easy to know the scratched percent.
+
 Using the getScarachPercent function to get the scratched percent 
 
 ####Example
   
-   let scratch_percent:Double = ScratchCard.getScarachPercent()
+    
+    var ScratchCard: ScratchUIView!
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
+        ScratchCard  = ScratchUIView(frame: CGRectMake(50, 80, 320, 480),Coupon: "coupon image", MaskImage: "mask image", ScratchWidth: CGFloat(40))
+        self.view.addSubview(ScratchCard)
+        }
+    }
 
 ##License
 ScratchCard is available under the MIT License.
