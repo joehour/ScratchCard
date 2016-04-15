@@ -2,7 +2,7 @@
 
 ## Installation
 
-### CocoaPods
+#### CocoaPods
 
 Check out [Get Started](https://guides.cocoapods.org/using/getting-started.html) tab on [cocoapods.org](http://cocoapods.org/).
 
@@ -18,3 +18,7 @@ Then run:
 
     pod install
 
+##License
+ScratchCard is available under the MIT License.
+
+Copyright © 2016 Joe.
