@@ -1,4 +1,5 @@
 # ScratchCard
+![image](https://raw.githubusercontent.com/joehour/ScratchCard/master/ScratchCard/result.png)
 
 ## Installation
 
