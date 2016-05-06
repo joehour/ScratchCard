@@ -25,7 +25,7 @@ public class ScratchUIView: UIView {
         self.Init()
     }
     
-    internal func getScratchPercent()->Double{
+    public func getScratchPercent()->Double{
         return ScratchCard.getAlphaPixelPercent()
     }
     
