@@ -29,7 +29,7 @@ Then run:
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ScratchCard  = ScratchUIView (frame: CGRect(x:50, y:80, width:320, height:480),Coupon: "image", MaskImage: "mask", ScratchWidth: CGFloat(40))
+        ScratchCard  = ScratchUIView(frame: CGRect(x:50, y:80, width:320, height:480),Coupon: "image", MaskImage: "mask", ScratchWidth: CGFloat(40))
         
         self.view.addSubview(ScratchCard)
         }
