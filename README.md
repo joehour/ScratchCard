@@ -1,5 +1,13 @@
 # ScratchCard
 <img src="https://raw.githubusercontent.com/joehour/ScratchCard/master/ScratchCard/result.jpg" width="400" height="800" />
+
+Requirements
+----------
+
+- iOS 8.0+
+- Xcode 8.0+ Swift 3
+
+
 ## Installation
 
 #### CocoaPods
@@ -12,7 +20,7 @@ To use ScratchCard in your project add the following 'Podfile' to your project
 	platform :ios, '8.0'
 	use_frameworks!
 
-	pod 'ScratchCard', '~> 1.0.3'
+	pod 'ScratchCard', '~> 1.0.4’
 
 Then run:
 
