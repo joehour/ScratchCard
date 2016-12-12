@@ -102,7 +102,7 @@
 					B4FDC4BA1CC0C1FB00D6B52C = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = ES9333BX3M;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0810;
 					};
 				};
 			};
@@ -252,7 +252,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 3.0.1;
 			};
 			name = Debug;
 		};
@@ -272,7 +272,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = joe.ScratchCard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 3.0.1;
 			};
 			name = Release;
 		};
