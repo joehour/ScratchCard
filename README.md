@@ -29,6 +29,7 @@ Then run:
 #### Source Code
 
 Copy the ScratchView.swift and ScratchUIView.swift to your project.
+
 Go ahead and import ScratchCard to your file.
 
 
