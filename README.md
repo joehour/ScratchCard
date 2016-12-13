@@ -5,7 +5,7 @@ Requirements
 ----------
 
 - iOS 8.0+
-- Xcode 8.0+ Swift 3
+- Xcode 8.1+ Swift 3
 
 
 ## Installation
@@ -26,9 +26,23 @@ Then run:
 
     pod install
 
+#### Source Code
 
-##Example
-   
+Copy the ScratchView.swift and ScratchUIView.swift to your project.
+Go ahead and import ScratchCard to your file.
+
+
+Example
+----------
+
+####Please check out the Example project included.
+
+
+Usage
+----------
+
+* Sample:
+```swift
     import ScratchCard
     
     class ViewController: UIViewController {
@@ -42,14 +56,17 @@ Then run:
         self.view.addSubview(ScratchCard)
         }
     }
+```
 
-##Scratched Percent
+Scratched Percent
+----------
+
 It is easy to get the scratched percent.
  
-######Example
-  
-    let scratch_percent:Double = ScratchCard.getScratchPercent()
-      
+* Sample:
+```swift
+   let scratch_percent:Double = ScratchCard.getScratchPercent()
+```
 
 ##License
 ScratchCard is available under the MIT License.

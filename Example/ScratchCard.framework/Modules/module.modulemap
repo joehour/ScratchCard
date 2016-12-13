@@ -1,0 +1,10 @@
+framework module ScratchCard {
+  umbrella header "ScratchCard.h"
+
+  export *
+  module * { export * }
+}
+
+module ScratchCard.Swift {
+    header "ScratchCard-Swift.h"
+}
