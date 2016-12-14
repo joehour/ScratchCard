@@ -14,7 +14,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		tCW8babf9drEXUV5HxUafZYEhLA=
+		G35d0gcP6MVwAUO73V41JcU+epU=
 		</data>
 		<key>Modules/ScratchCard.swiftmodule/arm.swiftdoc</key>
 		<data>
@@ -22,7 +22,7 @@
 		</data>
 		<key>Modules/ScratchCard.swiftmodule/arm.swiftmodule</key>
 		<data>
-		npKnl1GO+SimssEQjkeUxVaPjgA=
+		ht9aeX5pECmN609Ve3zrPaBPO94=
 		</data>
 		<key>Modules/ScratchCard.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -30,7 +30,7 @@
 		</data>
 		<key>Modules/ScratchCard.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		/V0KoI6W9NJyCU//Ot0gv+HeE4s=
+		UwXUCltO0KkhqoNT/xVQ4oX3eLI=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -76,11 +76,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			npKnl1GO+SimssEQjkeUxVaPjgA=
+			ht9aeX5pECmN609Ve3zrPaBPO94=
 			</data>
 			<key>hash2</key>
 			<data>
-			WxusPPh5owSTbBCgDSlU/PBlx0yPTR/2C3HBHyM7Rig=
+			TcePJKeJRW9hQT77fGqEMNo8E3pnG03go8+SphBLluA=
 			</data>
 		</dict>
 		<key>Modules/ScratchCard.swiftmodule/arm64.swiftdoc</key>
@@ -98,11 +98,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			/V0KoI6W9NJyCU//Ot0gv+HeE4s=
+			UwXUCltO0KkhqoNT/xVQ4oX3eLI=
 			</data>
 			<key>hash2</key>
 			<data>
-			AOpdfH31h+QzbfsX48QwiXY8XHxM1xF19SU4H27BS9g=
+			DG0ZQU7D95RIrFbC1f5+UE2ZdqZTDpaZ4GKVVstkbJM=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

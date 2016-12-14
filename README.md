@@ -5,7 +5,7 @@ Requirements
 ----------
 
 - iOS 8.0+
-- Xcode 8.1+ Swift 3
+- Xcode 8.0+ Swift 3
 
 
 ## Installation
@@ -20,7 +20,7 @@ To use ScratchCard in your project add the following 'Podfile' to your project
 	platform :ios, '8.0'
 	use_frameworks!
 
-	pod 'ScratchCard', '~> 1.0.6’
+	pod 'ScratchCard', '~> 1.0.7’
 
 Then run:
 
@@ -48,13 +48,13 @@ Usage
     
     class ViewController: UIViewController {
 
-    var ScratchCard: ScratchUIView!
+    var scratchCard: ScratchUIView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ScratchCard  = ScratchUIView(frame: CGRect(x:50, y:80, width:320, height:480),Coupon: "image", MaskImage: "mask", ScratchWidth: CGFloat(40))
+        scratchCard  = ScratchUIView(frame: CGRect(x:50, y:80, width:320, height:480),Coupon: "image", MaskImage: "mask", ScratchWidth: CGFloat(40))
         
-        self.view.addSubview(ScratchCard)
+        self.view.addSubview(scratchCard)
         }
     }
 ```
@@ -66,7 +66,7 @@ It is easy to get the scratched percent.
  
 * Sample:
 ```swift
-   let scratch_percent:Double = ScratchCard.getScratchPercent()
+   let scratchPercent: Double = scratchCard.getScratchPercent()
 ```
 
 ##License

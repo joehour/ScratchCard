@@ -9,34 +9,31 @@
 import Foundation
 import UIKit
 
-
-var CouponImage: UIImageView!
-var ScratchCard: ScratchView!
+var couponImage: UIImageView!
+var scratchCard: ScratchView!
 var coupon: String!
-var mask_image: String!
-var scratch_width: CGFloat!
+var uiScratchWidth: CGFloat!
 
 open class ScratchUIView: UIView {
     
-    @IBOutlet fileprivate var contentView:UIView?
+    @IBOutlet fileprivate var contentView: UIView?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.Init()
     }
     
-    open func getScratchPercent()->Double{
-        return ScratchCard.getAlphaPixelPercent()
+    open func getScratchPercent() -> Double {
+        return scratchCard.getAlphaPixelPercent()
     }
     
-    public init(frame: CGRect, Coupon: String, MaskImage: String, ScratchWidth:CGFloat) {
+    public init(frame: CGRect, Coupon: String, MaskImage: String, ScratchWidth: CGFloat) {
         super.init(frame: frame)
         coupon = Coupon
-        mask_image = MaskImage
-        scratch_width = ScratchWidth
+        maskImage = MaskImage
+        uiScratchWidth = ScratchWidth
         self.Init()
     }
-    
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -44,18 +41,16 @@ open class ScratchUIView: UIView {
     }
     
     fileprivate func Init() {
-        
-        CouponImage = UIImageView(image:UIImage(named:coupon))
-        ScratchCard = ScratchView(frame: self.frame, MaskImage: mask_image, ScratchWidth: scratch_width)
-        CouponImage.frame = CGRect(x: 0,y: 0, width: self.frame.width, height: self.frame.height)
-        ScratchCard.frame = CGRect(x: 0,y: 0,width: self.frame.width, height: self.frame.height)
-        self.addSubview(CouponImage)
-        self.addSubview(ScratchCard)
-        self.bringSubview(toFront: ScratchCard)
+        couponImage = UIImageView(image:UIImage(named:coupon))
+        scratchCard = ScratchView(frame: self.frame, MaskImage: maskImage, ScratchWidth: uiScratchWidth)
+        couponImage.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
+        scratchCard.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
+        self.addSubview(couponImage)
+        self.addSubview(scratchCard)
+        self.bringSubview(toFront: scratchCard)
     }
     
     fileprivate func InitXib() {
         
     }
-    
 }

@@ -11,14 +11,14 @@ import ScratchCard
 
 class ViewController: UIViewController {
 
-    var ScratchCard: ScratchUIView!
+    var scratchCard: ScratchUIView!
     @IBOutlet weak var textField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        ScratchCard  = ScratchUIView(frame: CGRect(x:50, y:80, width:320, height:480),Coupon: "image", MaskImage: "mask", ScratchWidth: CGFloat(40))
-        self.view.addSubview(ScratchCard)
+        scratchCard = ScratchUIView(frame: CGRect(x:50, y:80, width:320, height:480), Coupon: "image", MaskImage: "mask", ScratchWidth: CGFloat(40))
+        self.view.addSubview(scratchCard)
         
     }
 
@@ -29,9 +29,7 @@ class ViewController: UIViewController {
 
     @IBAction func getScratchPercent(_ sender: Any) {
     
-        let scratch_percent:Double = ScratchCard.getScratchPercent()
-        textField.text = String(format: "%.2f", scratch_percent*100) + "%"
+        let scratchPercent: Double = scratchCard.getScratchPercent()
+        textField.text = String(format: "%.2f", scratchPercent * 100) + "%"
     }
-
 }
-
