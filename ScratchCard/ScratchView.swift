@@ -111,10 +111,8 @@ open class ScratchView: UIView {
     
     override open func draw(_ rect: CGRect) {
         UIGraphicsGetCurrentContext()?.saveGState()
-        UIGraphicsGetCurrentContext()?.translateBy(x: self.frame.origin.x, y: self.frame.origin.y)
         UIGraphicsGetCurrentContext()?.translateBy(x: 0, y: self.frame.size.height)
         UIGraphicsGetCurrentContext()?.scaleBy(x: 1.0, y: -1.0)
-        UIGraphicsGetCurrentContext()?.translateBy(x: -self.frame.origin.x, y: -self.frame.origin.y)
         UIGraphicsGetCurrentContext()?.draw(scratched, in: self.frame)
         UIGraphicsGetCurrentContext()?.restoreGState()
     }
