@@ -30,6 +30,7 @@ internal protocol ScratchViewDelegate: class {
 open class ScratchView: UIView {
     
     internal weak var delegate: ScratchViewDelegate!
+    internal var position: CGPoint!
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.Init()
@@ -82,6 +83,8 @@ open class ScratchView: UIView {
                 firstTouch = true
                 location = CGPoint(x: touch.location(in: self).x, y: self.frame.size.height-touch.location(in: self).y)
                 
+                position = location
+                
                 if self.delegate != nil {
                     self.delegate.began(self)
                 }
@@ -100,6 +103,8 @@ open class ScratchView: UIView {
                     previousLocation = CGPoint(x: touch.previousLocation(in: self).x, y: self.frame.size.height-touch.previousLocation(in: self).y)
                 }
                 
+                position = previousLocation
+                
                 renderLineFromPoint(previousLocation, end: location)
                 
                 if self.delegate != nil {
@@ -114,6 +119,8 @@ open class ScratchView: UIView {
                 if firstTouch! {
                     firstTouch = false
                     previousLocation =  CGPoint(x: touch.previousLocation(in: self).x, y: self.frame.size.height-touch.previousLocation(in: self).y)
+                    
+                    position = previousLocation
                     
                     renderLineFromPoint(previousLocation, end: location)
                     

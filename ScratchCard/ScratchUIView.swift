@@ -23,6 +23,7 @@ var uiScratchWidth: CGFloat!
 open class ScratchUIView: UIView, ScratchViewDelegate {
     
     open weak var delegate: ScratchUIViewDelegate!
+    open var scratchPosition: CGPoint!
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.Init()
@@ -63,6 +64,9 @@ open class ScratchUIView: UIView, ScratchViewDelegate {
             guard self.delegate.scratchBegan != nil else {
                 return
             }
+            if view.position.x >= 0 && view.position.x <= view.frame.width && view.position.y >= 0 && view.position.y <= view.frame.height  {
+                scratchPosition = view.position
+            }
             self.delegate.scratchBegan!(self)
         }
     }
@@ -72,6 +76,9 @@ open class ScratchUIView: UIView, ScratchViewDelegate {
             guard self.delegate.scratchMoved != nil else {
                 return
             }
+            if view.position.x >= 0 && view.position.x <= view.frame.width && view.position.y >= 0 && view.position.y <= view.frame.height  {
+                scratchPosition = view.position
+            }
             self.delegate.scratchMoved!(self)
         }
     }
@@ -80,6 +87,9 @@ open class ScratchUIView: UIView, ScratchViewDelegate {
         if self.delegate != nil {
             guard self.delegate.scratchEnded != nil else {
                 return
+            }
+            if view.position.x >= 0 && view.position.x <= view.frame.width && view.position.y >= 0 && view.position.y <= view.frame.height  {
+                scratchPosition = view.position
             }
             self.delegate.scratchEnded!(self)
         }

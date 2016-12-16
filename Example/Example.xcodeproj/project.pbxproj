@@ -15,9 +15,9 @@
 		B4389DC21DFFF7B100B3DDE4 /* ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4389DC11DFFF7B100B3DDE4 /* ExampleTests.swift */; };
 		B4389DDB1DFFFC4C00B3DDE4 /* image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4389DD91DFFFC4C00B3DDE4 /* image.jpg */; };
 		B4389DDC1DFFFC4C00B3DDE4 /* mask.png in Resources */ = {isa = PBXBuildFile; fileRef = B4389DDA1DFFFC4C00B3DDE4 /* mask.png */; };
-		B4E3C0B61E04046000750E68 /* ScratchCard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4E3C0B51E04046000750E68 /* ScratchCard.framework */; };
-		B4E3C0B71E04046500750E68 /* ScratchCard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4E3C0B51E04046000750E68 /* ScratchCard.framework */; };
-		B4E3C0B81E04046500750E68 /* ScratchCard.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B4E3C0B51E04046000750E68 /* ScratchCard.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B4E5947A1E04615B00859958 /* ScratchCard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4E594791E04615B00859958 /* ScratchCard.framework */; };
+		B4E5947B1E04616400859958 /* ScratchCard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4E594791E04615B00859958 /* ScratchCard.framework */; };
+		B4E5947C1E04616400859958 /* ScratchCard.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B4E594791E04615B00859958 /* ScratchCard.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +37,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B4E3C0B81E04046500750E68 /* ScratchCard.framework in Embed Frameworks */,
+				B4E5947C1E04616400859958 /* ScratchCard.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -57,7 +57,7 @@
 		B4389DC31DFFF7B100B3DDE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4389DD91DFFFC4C00B3DDE4 /* image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image.jpg; sourceTree = "<group>"; };
 		B4389DDA1DFFFC4C00B3DDE4 /* mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mask.png; sourceTree = "<group>"; };
-		B4E3C0B51E04046000750E68 /* ScratchCard.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ScratchCard.framework; sourceTree = "<group>"; };
+		B4E594791E04615B00859958 /* ScratchCard.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ScratchCard.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,8 +65,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4E3C0B61E04046000750E68 /* ScratchCard.framework in Frameworks */,
-				B4E3C0B71E04046500750E68 /* ScratchCard.framework in Frameworks */,
+				B4E5947A1E04615B00859958 /* ScratchCard.framework in Frameworks */,
+				B4E5947B1E04616400859958 /* ScratchCard.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,7 +83,7 @@
 		B4389DA01DFFF7B100B3DDE4 = {
 			isa = PBXGroup;
 			children = (
-				B4E3C0B51E04046000750E68 /* ScratchCard.framework */,
+				B4E594791E04615B00859958 /* ScratchCard.framework */,
 				B4389DAB1DFFF7B100B3DDE4 /* Example */,
 				B4389DC01DFFF7B100B3DDE4 /* ExampleTests */,
 				B4389DAA1DFFF7B100B3DDE4 /* Products */,

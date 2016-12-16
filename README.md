@@ -20,7 +20,7 @@ To use ScratchCard in your project add the following 'Podfile' to your project
 	platform :ios, '8.0'
 	use_frameworks!
 
-	pod 'ScratchCard', '~> 1.0.9’
+	pod 'ScratchCard', '~> 1.0.10’
 
 Then run:
 
@@ -74,6 +74,8 @@ Handle Scratch Event
  
 It is easy to handle the scratch event(ScratchBegan, ScratchMoved, and ScratchEnded).
 
+You can get the Scratch Position in the ScratchCard.
+
 Please set the ScratchUIViewDelegate in your code.
  
 * Sample:
@@ -93,6 +95,11 @@ class ViewController: UIViewController, ScratchUIViewDelegate {
     //Scratch Began Event(optional)
     func scratchBegan(_ view: ScratchUIView) {
         print("scratchBegan")
+        
+        ////Get the Scratch Position in ScratchCard(coordinate origin is at the lower left corner)
+        let position = Int(view.scratchPosition.x).description + "," + Int(view.scratchPosition.y).description
+        print(position)
+
     }
     
     //Scratch Moved Event(optional)
@@ -100,11 +107,20 @@ class ViewController: UIViewController, ScratchUIViewDelegate {
         let scratchPercent: Double = scratchCard.getScratchPercent()
         textField.text = String(format: "%.2f", scratchPercent * 100) + "%"
         print("scratchMoved")
+        
+        ////Get the Scratch Position in ScratchCard(coordinate origin is at the lower left corner)
+        let position = Int(view.scratchPosition.x).description + "," + Int(view.scratchPosition.y).description
+        print(position)
     }
     
     //Scratch Ended Event(optional)
     func scratchEnded(_ view: ScratchUIView) {
         print("scratchEnded")
+        
+        ////Get the Scratch Position in ScratchCard(coordinate origin is at the lower left corner)
+        let position = Int(view.scratchPosition.x).description + "," + Int(view.scratchPosition.y).description
+        print(position)
+
     }
 }
 ```
