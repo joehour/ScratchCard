@@ -20,7 +20,7 @@ To use ScratchCard in your project add the following 'Podfile' to your project
 	platform :ios, '8.0'
 	use_frameworks!
 
-	pod 'ScratchCard', '~> 1.0.8’
+	pod 'ScratchCard', '~> 1.0.9’
 
 Then run:
 
@@ -67,6 +67,43 @@ It is easy to get the scratched percent.
 * Sample:
 ```swift
    let scratchPercent: Double = scratchCard.getScratchPercent()
+```
+
+Handle Scratch Event
+----------
+ 
+It is easy to handle the scratch event(ScratchBegan, ScratchMoved, and ScratchEnded).
+Please set the ScratchUIViewDelegate in your code.
+ 
+* Sample:
+```swift
+class ViewController: UIViewController, ScratchUIViewDelegate {
+    
+    var scratchCard: ScratchUIView!
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        scratchCard = ScratchUIView(frame: CGRect(x:50, y:80, width:320, height:480), Coupon: "image", MaskImage: "mask", ScratchWidth: CGFloat(40))
+        scratchCard.delegate = self
+        
+        self.view.addSubview(scratchCard)
+    }
+    
+    //Scratch Began event(optional function)
+    func scratchBegan(_ view: ScratchUIView) {
+        print("scratchBegan")
+    }
+    
+    //Scratch Moved event(optional function)
+    func scratchMoved(_ view: ScratchUIView) {
+        print("scratchMoved")
+    }
+    
+    //Scratch Ended event(optional function)
+    func scratchEnded(_ view: ScratchUIView) {
+        print("scratchEnded")
+    }
+}
 ```
 
 ##License

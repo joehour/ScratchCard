@@ -10,14 +10,19 @@ import Foundation
 import UIKit
 
 var couponImage: UIImageView!
-var scratchCard: ScratchView!
+public var scratchCard: ScratchView!
 var coupon: String!
 var uiScratchWidth: CGFloat!
 
-open class ScratchUIView: UIView {
+@objc public protocol ScratchUIViewDelegate: class {
+    @objc optional func scratchBegan(_ view: ScratchUIView)
+    @objc optional func scratchMoved(_ view: ScratchUIView)
+    @objc optional func scratchEnded(_ view: ScratchUIView)
+}
+
+open class ScratchUIView: UIView, ScratchViewDelegate {
     
-    @IBOutlet fileprivate var contentView: UIView?
-    
+    open weak var delegate: ScratchUIViewDelegate!
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.Init()
@@ -43,11 +48,41 @@ open class ScratchUIView: UIView {
     fileprivate func Init() {
         couponImage = UIImageView(image:UIImage(named:coupon))
         scratchCard = ScratchView(frame: self.frame, MaskImage: maskImage, ScratchWidth: uiScratchWidth)
+        
         couponImage.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
         scratchCard.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
+        scratchCard.delegate = self
         self.addSubview(couponImage)
         self.addSubview(scratchCard)
         self.bringSubview(toFront: scratchCard)
+        
+    }
+    
+    internal func began(_ view: ScratchView) {
+        if self.delegate != nil {
+            guard self.delegate.scratchBegan != nil else {
+                return
+            }
+            self.delegate.scratchBegan!(self)
+        }
+    }
+    
+    internal func moved(_ view: ScratchView) {
+        if self.delegate != nil {
+            guard self.delegate.scratchMoved != nil else {
+                return
+            }
+            self.delegate.scratchMoved!(self)
+        }
+    }
+    
+    internal func ended(_ view: ScratchView) {
+        if self.delegate != nil {
+            guard self.delegate.scratchEnded != nil else {
+                return
+            }
+            self.delegate.scratchEnded!(self)
+        }
     }
     
     fileprivate func InitXib() {

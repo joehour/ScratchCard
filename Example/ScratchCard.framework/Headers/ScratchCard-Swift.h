@@ -122,13 +122,24 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
 #pragma clang diagnostic ignored "-Wduplicate-method-arg"
 @class NSCoder;
+@protocol ScratchUIViewDelegate;
 
 SWIFT_CLASS("_TtC11ScratchCard13ScratchUIView")
 @interface ScratchUIView : UIView
+@property (nonatomic, weak) id <ScratchUIViewDelegate> _Null_unspecified delegate;
 - (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
 - (double)getScratchPercent;
 - (nonnull instancetype)initWithFrame:(CGRect)frame Coupon:(NSString * _Nonnull)Coupon MaskImage:(NSString * _Nonnull)MaskImage ScratchWidth:(CGFloat)ScratchWidth OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_PROTOCOL("_TtP11ScratchCard21ScratchUIViewDelegate_")
+@protocol ScratchUIViewDelegate
+@optional
+- (void)scratchBegan:(ScratchUIView * _Nonnull)view;
+- (void)scratchMoved:(ScratchUIView * _Nonnull)view;
+- (void)scratchEnded:(ScratchUIView * _Nonnull)view;
 @end
 
 @class UITouch;

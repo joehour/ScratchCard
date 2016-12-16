@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B40A94AC1E0297F100D4550A /* ScratchCard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B40A94AB1E0297F100D4550A /* ScratchCard.framework */; };
-		B40A94AD1E0297F500D4550A /* ScratchCard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B40A94AB1E0297F100D4550A /* ScratchCard.framework */; };
-		B40A94AE1E0297F500D4550A /* ScratchCard.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B40A94AB1E0297F100D4550A /* ScratchCard.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B4389DAD1DFFF7B100B3DDE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4389DAC1DFFF7B100B3DDE4 /* AppDelegate.swift */; };
 		B4389DAF1DFFF7B100B3DDE4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4389DAE1DFFF7B100B3DDE4 /* ViewController.swift */; };
 		B4389DB21DFFF7B100B3DDE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4389DB01DFFF7B100B3DDE4 /* Main.storyboard */; };
@@ -18,6 +15,9 @@
 		B4389DC21DFFF7B100B3DDE4 /* ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4389DC11DFFF7B100B3DDE4 /* ExampleTests.swift */; };
 		B4389DDB1DFFFC4C00B3DDE4 /* image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4389DD91DFFFC4C00B3DDE4 /* image.jpg */; };
 		B4389DDC1DFFFC4C00B3DDE4 /* mask.png in Resources */ = {isa = PBXBuildFile; fileRef = B4389DDA1DFFFC4C00B3DDE4 /* mask.png */; };
+		B4E3C0B61E04046000750E68 /* ScratchCard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4E3C0B51E04046000750E68 /* ScratchCard.framework */; };
+		B4E3C0B71E04046500750E68 /* ScratchCard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4E3C0B51E04046000750E68 /* ScratchCard.framework */; };
+		B4E3C0B81E04046500750E68 /* ScratchCard.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B4E3C0B51E04046000750E68 /* ScratchCard.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +37,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B40A94AE1E0297F500D4550A /* ScratchCard.framework in Embed Frameworks */,
+				B4E3C0B81E04046500750E68 /* ScratchCard.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -45,7 +45,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		B40A94AB1E0297F100D4550A /* ScratchCard.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ScratchCard.framework; sourceTree = "<group>"; };
 		B4389DA91DFFF7B100B3DDE4 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4389DAC1DFFF7B100B3DDE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4389DAE1DFFF7B100B3DDE4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +57,7 @@
 		B4389DC31DFFF7B100B3DDE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4389DD91DFFFC4C00B3DDE4 /* image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image.jpg; sourceTree = "<group>"; };
 		B4389DDA1DFFFC4C00B3DDE4 /* mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mask.png; sourceTree = "<group>"; };
+		B4E3C0B51E04046000750E68 /* ScratchCard.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ScratchCard.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,8 +65,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B40A94AC1E0297F100D4550A /* ScratchCard.framework in Frameworks */,
-				B40A94AD1E0297F500D4550A /* ScratchCard.framework in Frameworks */,
+				B4E3C0B61E04046000750E68 /* ScratchCard.framework in Frameworks */,
+				B4E3C0B71E04046500750E68 /* ScratchCard.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,7 +83,7 @@
 		B4389DA01DFFF7B100B3DDE4 = {
 			isa = PBXGroup;
 			children = (
-				B40A94AB1E0297F100D4550A /* ScratchCard.framework */,
+				B4E3C0B51E04046000750E68 /* ScratchCard.framework */,
 				B4389DAB1DFFF7B100B3DDE4 /* Example */,
 				B4389DC01DFFF7B100B3DDE4 /* ExampleTests */,
 				B4389DAA1DFFF7B100B3DDE4 /* Products */,

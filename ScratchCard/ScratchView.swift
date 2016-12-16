@@ -20,10 +20,16 @@ var alphaPixels: CGContext!
 var provider: CGDataProvider!
 var maskImage: String!
 var scratchWidth: CGFloat!
-var count: Double!
+
+internal protocol ScratchViewDelegate: class {
+    func began(_ view: ScratchView)
+    func moved(_ view: ScratchView)
+    func ended(_ view: ScratchView)
+}
 
 open class ScratchView: UIView {
     
+    internal weak var delegate: ScratchViewDelegate!
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.Init()
@@ -43,8 +49,6 @@ open class ScratchView: UIView {
     }
     
     fileprivate func Init() {
-        
-        count = 0
         scratchable = UIImage(named: maskImage)!.cgImage
         width = (Int)(self.frame.width)
         height = (Int)(self.frame.height)
@@ -77,13 +81,16 @@ open class ScratchView: UIView {
             if let touch = touches.first {
                 firstTouch = true
                 location = CGPoint(x: touch.location(in: self).x, y: self.frame.size.height-touch.location(in: self).y)
+                
+                if self.delegate != nil {
+                    self.delegate.began(self)
+                }
         }
     }
     
     override open func touchesMoved(_ touches: Set<UITouch>,
         with event: UIEvent?) {
             if let touch = touches.first {
-                
                 if firstTouch! {
                     firstTouch = false
                     previousLocation =  CGPoint(x: touch.previousLocation(in: self).x, y: self.frame.size.height-touch.previousLocation(in: self).y)
@@ -94,17 +101,25 @@ open class ScratchView: UIView {
                 }
                 
                 renderLineFromPoint(previousLocation, end: location)
+                
+                if self.delegate != nil {
+                    self.delegate.moved(self)
+                }
             }
     }
     
     override open func touchesEnded(_ touches: Set<UITouch>,
         with event: UIEvent?) {
-            if let touch = touches.first{
+            if let touch = touches.first {
                 if firstTouch! {
                     firstTouch = false
                     previousLocation =  CGPoint(x: touch.previousLocation(in: self).x, y: self.frame.size.height-touch.previousLocation(in: self).y)
                     
                     renderLineFromPoint(previousLocation, end: location)
+                    
+                    if self.delegate != nil {
+                        self.delegate.ended(self)
+                    }
                 }
             }
     }
@@ -132,15 +147,15 @@ open class ScratchView: UIView {
         let imageHeight: size_t = alphaPixels.makeImage()!.height
         
         var byteIndex: Int  = 0
-        count = 0
+        var count: Double = 0
         
         for _ in 0...imageWidth * imageHeight {
             if data[byteIndex + 3] != 0 {
-                count! += 1
+                count += 1
             }
             byteIndex += 1
         }
         
-        return count! / Double(imageWidth * imageHeight)
+        return count / Double(imageWidth * imageHeight)
     }
 }

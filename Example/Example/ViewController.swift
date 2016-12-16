@@ -9,8 +9,8 @@
 import UIKit
 import ScratchCard
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, ScratchUIViewDelegate {
+    
     var scratchCard: ScratchUIView!
     @IBOutlet weak var textField: UITextField!
     override func viewDidLoad() {
@@ -18,8 +18,9 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         scratchCard = ScratchUIView(frame: CGRect(x:50, y:80, width:320, height:480), Coupon: "image", MaskImage: "mask", ScratchWidth: CGFloat(40))
-        self.view.addSubview(scratchCard)
+        scratchCard.delegate = self
         
+        self.view.addSubview(scratchCard)
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,8 +29,24 @@ class ViewController: UIViewController {
     }
 
     @IBAction func getScratchPercent(_ sender: Any) {
-    
         let scratchPercent: Double = scratchCard.getScratchPercent()
         textField.text = String(format: "%.2f", scratchPercent * 100) + "%"
+    }
+    
+    //Scratch Began event(optional function)
+    func scratchBegan(_ view: ScratchUIView) {
+        print("scratchBegan")
+    }
+    
+    //Scratch Moved event(optional function)
+    func scratchMoved(_ view: ScratchUIView) {
+        let scratchPercent: Double = scratchCard.getScratchPercent()
+        textField.text = String(format: "%.2f", scratchPercent * 100) + "%"
+        print("scratchMoved")
+    }
+    
+    //Scratch Ended event(optional function)
+    func scratchEnded(_ view: ScratchUIView) {
+        print("scratchEnded")
     }
 }
