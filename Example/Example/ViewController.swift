@@ -33,19 +33,19 @@ class ViewController: UIViewController, ScratchUIViewDelegate {
         textField.text = String(format: "%.2f", scratchPercent * 100) + "%"
     }
     
-    //Scratch Began event(optional function)
+    //Scratch Began Event(optional)
     func scratchBegan(_ view: ScratchUIView) {
         print("scratchBegan")
     }
     
-    //Scratch Moved event(optional function)
+    //Scratch Moved Event(optional)
     func scratchMoved(_ view: ScratchUIView) {
         let scratchPercent: Double = scratchCard.getScratchPercent()
         textField.text = String(format: "%.2f", scratchPercent * 100) + "%"
         print("scratchMoved")
     }
     
-    //Scratch Ended event(optional function)
+    //Scratch Ended Event(optional)
     func scratchEnded(_ view: ScratchUIView) {
         print("scratchEnded")
     }
