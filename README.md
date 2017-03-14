@@ -16,10 +16,6 @@ Check out [Get Started](https://guides.cocoapods.org/using/getting-started.html)
 
 To use ScratchCard in your project add the following 'Podfile' to your project
 
-	source 'https://github.com/joehour/ScratchCard.git'
-	platform :ios, '8.0'
-	use_frameworks!
-
 	pod 'ScratchCard', '~> 1.0.10’
 
 Then run:
@@ -52,7 +48,7 @@ Usage
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        scratchCard  = ScratchUIView(frame: CGRect(x:50, y:80, width:320, height:480),Coupon: "image", MaskImage: "mask", ScratchWidth: CGFloat(40))
+        scratchCard  = ScratchUIView(frame: CGRect(x:50, y:80, width:320, height:480),Coupon: "image.jpg", MaskImage: "mask.png", ScratchWidth: CGFloat(40))
         
         self.view.addSubview(scratchCard)
         }
