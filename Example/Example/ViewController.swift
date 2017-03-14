@@ -17,7 +17,7 @@ class ViewController: UIViewController, ScratchUIViewDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        scratchCard = ScratchUIView(frame: CGRect(x:50, y:80, width:320, height:480), Coupon: "image", MaskImage: "mask", ScratchWidth: CGFloat(40))
+        scratchCard = ScratchUIView(frame: CGRect(x:50, y:80, width:320, height:480), Coupon: "image.jpg", MaskImage: "mask.png", ScratchWidth: CGFloat(40))
         scratchCard.delegate = self
         
         self.view.addSubview(scratchCard)

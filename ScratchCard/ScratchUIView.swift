@@ -47,7 +47,7 @@ open class ScratchUIView: UIView, ScratchViewDelegate {
     }
     
     fileprivate func Init() {
-        couponImage = UIImageView(image:UIImage(named:coupon))
+        couponImage = UIImageView(image: UIImage(named: coupon))
         scratchCard = ScratchView(frame: self.frame, MaskImage: maskImage, ScratchWidth: uiScratchWidth)
         
         couponImage.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)

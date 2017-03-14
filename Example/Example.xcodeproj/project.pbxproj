@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B4285D6A1E77D4830008466D /* ScratchCard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4285D691E77D4830008466D /* ScratchCard.framework */; };
+		B4285D6B1E77D4830008466D /* ScratchCard.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B4285D691E77D4830008466D /* ScratchCard.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B4389DAD1DFFF7B100B3DDE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4389DAC1DFFF7B100B3DDE4 /* AppDelegate.swift */; };
 		B4389DAF1DFFF7B100B3DDE4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4389DAE1DFFF7B100B3DDE4 /* ViewController.swift */; };
 		B4389DB21DFFF7B100B3DDE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4389DB01DFFF7B100B3DDE4 /* Main.storyboard */; };
@@ -15,9 +17,6 @@
 		B4389DC21DFFF7B100B3DDE4 /* ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4389DC11DFFF7B100B3DDE4 /* ExampleTests.swift */; };
 		B4389DDB1DFFFC4C00B3DDE4 /* image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4389DD91DFFFC4C00B3DDE4 /* image.jpg */; };
 		B4389DDC1DFFFC4C00B3DDE4 /* mask.png in Resources */ = {isa = PBXBuildFile; fileRef = B4389DDA1DFFFC4C00B3DDE4 /* mask.png */; };
-		B4E5947A1E04615B00859958 /* ScratchCard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4E594791E04615B00859958 /* ScratchCard.framework */; };
-		B4E5947B1E04616400859958 /* ScratchCard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4E594791E04615B00859958 /* ScratchCard.framework */; };
-		B4E5947C1E04616400859958 /* ScratchCard.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B4E594791E04615B00859958 /* ScratchCard.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,13 +30,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		B4389DD81DFFF84E00B3DDE4 /* Embed Frameworks */ = {
+		B45007D01E07EFB000AB92E2 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B4E5947C1E04616400859958 /* ScratchCard.framework in Embed Frameworks */,
+				B4285D6B1E77D4830008466D /* ScratchCard.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -45,6 +44,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B4285D691E77D4830008466D /* ScratchCard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ScratchCard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4389DA91DFFF7B100B3DDE4 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4389DAC1DFFF7B100B3DDE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4389DAE1DFFF7B100B3DDE4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -57,7 +57,6 @@
 		B4389DC31DFFF7B100B3DDE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4389DD91DFFFC4C00B3DDE4 /* image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image.jpg; sourceTree = "<group>"; };
 		B4389DDA1DFFFC4C00B3DDE4 /* mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mask.png; sourceTree = "<group>"; };
-		B4E594791E04615B00859958 /* ScratchCard.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ScratchCard.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,8 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4E5947A1E04615B00859958 /* ScratchCard.framework in Frameworks */,
-				B4E5947B1E04616400859958 /* ScratchCard.framework in Frameworks */,
+				B4285D6A1E77D4830008466D /* ScratchCard.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,7 +81,7 @@
 		B4389DA01DFFF7B100B3DDE4 = {
 			isa = PBXGroup;
 			children = (
-				B4E594791E04615B00859958 /* ScratchCard.framework */,
+				B4285D691E77D4830008466D /* ScratchCard.framework */,
 				B4389DAB1DFFF7B100B3DDE4 /* Example */,
 				B4389DC01DFFF7B100B3DDE4 /* ExampleTests */,
 				B4389DAA1DFFF7B100B3DDE4 /* Products */,
@@ -133,7 +131,7 @@
 				B4389DA51DFFF7B100B3DDE4 /* Sources */,
 				B4389DA61DFFF7B100B3DDE4 /* Frameworks */,
 				B4389DA71DFFF7B100B3DDE4 /* Resources */,
-				B4389DD81DFFF84E00B3DDE4 /* Embed Frameworks */,
+				B45007D01E07EFB000AB92E2 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -175,11 +173,13 @@
 					B4389DA81DFFF7B100B3DDE4 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = Y3YDLKH37F;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					B4389DBC1DFFF7B100B3DDE4 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = Y3YDLKH37F;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						TestTargetID = B4389DA81DFFF7B100B3DDE4;
 					};
