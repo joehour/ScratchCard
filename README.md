@@ -1,5 +1,5 @@
 # ScratchCard
-<img src="https://raw.githubusercontent.com/joehour/ScratchCard/swift3.0/ScratchCard/result.gif" width="400" height="800" />
+<img src="https://raw.githubusercontent.com/joehour/ScratchCard/swift3.0/ScratchCard/result.gif" width="307" height="550" />
 
 Requirements
 ----------
