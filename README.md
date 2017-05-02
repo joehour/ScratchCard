@@ -1,5 +1,5 @@
 # ScratchCard
-<img src="https://raw.githubusercontent.com/joehour/ScratchCard/master/ScratchCard/result.jpg" width="400" height="800" />
+<img src="https://raw.githubusercontent.com/joehour/ScratchCard/master/ScratchCard/result.gif" width="400" height="800" />
 
 Requirements
 ----------
