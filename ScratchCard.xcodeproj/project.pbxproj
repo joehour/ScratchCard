@@ -12,7 +12,25 @@
 		B4FDC4C91CC0C2EE00D6B52C /* ScratchUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FDC4C81CC0C2EE00D6B52C /* ScratchUIView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		B4389DD11DFFF7B200B3DDE4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B4389DCC1DFFF7B100B3DDE4 /* Example.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B4389DA91DFFF7B100B3DDE4;
+			remoteInfo = Example;
+		};
+		B4389DD31DFFF7B200B3DDE4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B4389DCC1DFFF7B100B3DDE4 /* Example.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B4389DBD1DFFF7B100B3DDE4;
+			remoteInfo = ExampleTests;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		B4389DCC1DFFF7B100B3DDE4 /* Example.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Example.xcodeproj; path = Example/Example.xcodeproj; sourceTree = "<group>"; };
 		B4FDC4BB1CC0C1FB00D6B52C /* ScratchCard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ScratchCard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4FDC4BE1CC0C1FB00D6B52C /* ScratchCard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScratchCard.h; sourceTree = "<group>"; };
 		B4FDC4C01CC0C1FB00D6B52C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -31,9 +49,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B4389DCD1DFFF7B100B3DDE4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B4389DD21DFFF7B200B3DDE4 /* Example.app */,
+				B4389DD41DFFF7B200B3DDE4 /* ExampleTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		B4FDC4B11CC0C1FB00D6B52C = {
 			isa = PBXGroup;
 			children = (
+				B4389DCC1DFFF7B100B3DDE4 /* Example.xcodeproj */,
 				B4FDC4BD1CC0C1FB00D6B52C /* ScratchCard */,
 				B4FDC4BC1CC0C1FB00D6B52C /* Products */,
 			);
@@ -96,12 +124,13 @@
 		B4FDC4B21CC0C1FB00D6B52C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = JoeJoe;
 				TargetAttributes = {
 					B4FDC4BA1CC0C1FB00D6B52C = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = ES9333BX3M;
+						LastSwiftMigration = 0810;
 					};
 				};
 			};
@@ -115,12 +144,35 @@
 			mainGroup = B4FDC4B11CC0C1FB00D6B52C;
 			productRefGroup = B4FDC4BC1CC0C1FB00D6B52C /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = B4389DCD1DFFF7B100B3DDE4 /* Products */;
+					ProjectRef = B4389DCC1DFFF7B100B3DDE4 /* Example.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				B4FDC4BA1CC0C1FB00D6B52C /* ScratchCard */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		B4389DD21DFFF7B200B3DDE4 /* Example.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = Example.app;
+			remoteRef = B4389DD11DFFF7B200B3DDE4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B4389DD41DFFF7B200B3DDE4 /* ExampleTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ExampleTests.xctest;
+			remoteRef = B4389DD31DFFF7B200B3DDE4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		B4FDC4B91CC0C1FB00D6B52C /* Resources */ = {
@@ -158,8 +210,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -187,6 +241,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -206,8 +261,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -227,6 +284,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -239,6 +298,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -251,6 +311,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -259,6 +320,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -270,6 +332,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = joe.ScratchCard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

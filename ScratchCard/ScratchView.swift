@@ -9,23 +9,29 @@
 import Foundation
 import UIKit
 
-
-var width:Int!
-var height:Int!
+var width: Int!
+var height: Int!
 var location: CGPoint!
-var previous_location: CGPoint!
-var first_touch:Bool!
-var scratchable:CGImageRef!
-var scratched:CGImageRef!
-var _scratched:CGImageRef!
-var alpha_pixels:CGContextRef!
-var provider:CGDataProviderRef!
-var _mask_image: String!
-var _scratch_width: CGFloat!
-var count: Double!
+var previousLocation: CGPoint!
+var firstTouch: Bool!
+var scratchable: CGImage!
+var scratched: CGImage!
+var alphaPixels: CGContext!
+var provider: CGDataProvider!
+var maskImage: String!
+var scratchWidth: CGFloat!
+var contentLayer: CALayer!
 
-public class ScratchView: UIView {
+internal protocol ScratchViewDelegate: class {
+    func began(_ view: ScratchView)
+    func moved(_ view: ScratchView)
+    func ended(_ view: ScratchView)
+}
+
+open class ScratchView: UIView {
     
+    internal weak var delegate: ScratchViewDelegate!
+    internal var position: CGPoint!
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.Init()
@@ -33,8 +39,8 @@ public class ScratchView: UIView {
     
     init(frame: CGRect, MaskImage: String, ScratchWidth: CGFloat) {
         super.init(frame: frame)
-        _mask_image = MaskImage
-        _scratch_width = ScratchWidth
+        maskImage = MaskImage
+        scratchWidth = ScratchWidth
         self.Init()
     }
     
@@ -44,112 +50,125 @@ public class ScratchView: UIView {
         self.InitXib()
     }
     
-    private func Init() {
-        
-        count = 0
-        scratchable = UIImage(named: _mask_image)!.CGImage
+    fileprivate func Init() {
+        scratchable = UIImage(named: maskImage)!.cgImage
         width = (Int)(self.frame.width)
         height = (Int)(self.frame.height)
         
-        self.opaque = false
-        let colorspace:CGColorSpaceRef = CGColorSpaceCreateDeviceGray()!
+        self.isOpaque = false
+        let colorspace: CGColorSpace = CGColorSpaceCreateDeviceRGB()
         
-        let pixels: CFMutableDataRef = CFDataCreateMutable ( nil , width * height )
-        alpha_pixels = CGBitmapContextCreate( CFDataGetMutableBytePtr( pixels ) , width , height , 8 , width, colorspace ,CGImageAlphaInfo.None.rawValue )
-        provider = CGDataProviderCreateWithCFData(pixels);
-        CGContextSetFillColorWithColor(alpha_pixels, UIColor.blackColor().CGColor)
-        CGContextFillRect(alpha_pixels, frame);
-        CGContextSetStrokeColorWithColor(alpha_pixels, UIColor.whiteColor().CGColor);
-        CGContextSetLineWidth(alpha_pixels, _scratch_width);
-        CGContextSetLineCap(alpha_pixels, CGLineCap.Round)
+        let pixels: CFMutableData = CFDataCreateMutable(nil, width * height * 4)
         
-        let mask:CGImageRef = CGImageMaskCreate(width, height, 8, 8, width , provider, nil, false)!
-        scratched = CGImageCreateWithMask(scratchable, mask);
+        alphaPixels = CGContext( data: CFDataGetMutableBytePtr(pixels), width: width, height: height, bitsPerComponent: 8, bytesPerRow: width * 4, space: colorspace, bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue)
+        
+        provider = CGDataProvider(data: pixels)
+        
+        alphaPixels.setFillColor(red: 0, green: 0, blue: 0, alpha: 0)
+        alphaPixels.setStrokeColor(red: 255, green: 255, blue: 255, alpha: 1)
+        alphaPixels.setLineWidth(scratchWidth)
+        alphaPixels.setLineCap(CGLineCap.round)
+        
+        let mask: CGImage = CGImage(maskWidth: width, height: height, bitsPerComponent: 8, bitsPerPixel: 32, bytesPerRow: width * 4, provider: provider, decode: nil, shouldInterpolate: false)!
+        var maskLayer = CAShapeLayer()
+        maskLayer.frame =  CGRect(x:0, y:0, width:width, height:height)
+        maskLayer.contents = mask
+        
+        contentLayer = CALayer()
+        contentLayer.frame =  CGRect(x:0, y:0, width:width, height:height)
+        contentLayer.contents = scratchable
+        contentLayer.mask = maskLayer
         
     }
     
-    private func InitXib() {
+    fileprivate func InitXib() {
         
     }
     
-    override public func touchesBegan(touches: Set<UITouch>,
-        withEvent event: UIEvent?){
-            if let touch = touches.first{
-                first_touch = true
-                location = CGPoint(x: touch.locationInView(self).x, y: self.frame.size.height-touch.locationInView(self).y)            }
-    }
-    
-    override public func touchesMoved(touches: Set<UITouch>,
-        withEvent event: UIEvent?){
-            if let touch = touches.first{
+    override open func touchesBegan(_ touches: Set<UITouch>,
+        with event: UIEvent?) {
+            if let touch = touches.first {
+                firstTouch = true
+                location = CGPoint(x: touch.location(in: self).x, y: self.frame.size.height-touch.location(in: self).y)
                 
-                if ((first_touch)!) {
-                    first_touch = false;
-                    previous_location =  CGPoint(x: touch.previousLocationInView(self).x, y: self.frame.size.height-touch.previousLocationInView(self).y)
+                position = location
+                
+                if self.delegate != nil {
+                    self.delegate.began(self)
+                }
+        }
+    }
+    
+    override open func touchesMoved(_ touches: Set<UITouch>,
+        with event: UIEvent?) {
+            if let touch = touches.first {
+                if firstTouch! {
+                    firstTouch = false
+                    previousLocation =  CGPoint(x: touch.previousLocation(in: self).x, y: self.frame.size.height-touch.previousLocation(in: self).y)
                 } else {
                     
-                    location = CGPoint(x: touch.locationInView(self).x, y: self.frame.size.height-touch.locationInView(self).y)
-                    previous_location = CGPoint(x: touch.previousLocationInView(self).x, y: self.frame.size.height-touch.previousLocationInView(self).y)
+                    location = CGPoint(x: touch.location(in: self).x, y: self.frame.size.height-touch.location(in: self).y)
+                    previousLocation = CGPoint(x: touch.previousLocation(in: self).x, y: self.frame.size.height-touch.previousLocation(in: self).y)
                 }
                 
-                renderLineFromPoint(previous_location,end: location)
+                position = previousLocation
                 
+                renderLineFromPoint(previousLocation, end: location)
+                
+                if self.delegate != nil {
+                    self.delegate.moved(self)
+                }
             }
     }
     
-    override public func touchesEnded(touches: Set<UITouch>,
-        withEvent event: UIEvent?){
-            if let touch = touches.first{
-                if ((first_touch)!) {
-                    first_touch = false;
-                    previous_location =  CGPoint(x: touch.previousLocationInView(self).x, y: self.frame.size.height-touch.previousLocationInView(self).y)
-                    renderLineFromPoint(previous_location,end: location)
+    override open func touchesEnded(_ touches: Set<UITouch>,
+        with event: UIEvent?) {
+            if let touch = touches.first {
+                if firstTouch! {
+                    firstTouch = false
+                    previousLocation =  CGPoint(x: touch.previousLocation(in: self).x, y: self.frame.size.height-touch.previousLocation(in: self).y)
                     
+                    position = previousLocation
+                    
+                    renderLineFromPoint(previousLocation, end: location)
+                    
+                    if self.delegate != nil {
+                        self.delegate.ended(self)
+                    }
                 }
             }
     }
     
-    override public func drawRect(rect: CGRect){
-        CGContextSaveGState(UIGraphicsGetCurrentContext());
-        CGContextTranslateCTM(UIGraphicsGetCurrentContext(), self.frame.origin.x, self.frame.origin.y);
-        CGContextTranslateCTM(UIGraphicsGetCurrentContext(), 0, self.frame.size.height);
-        CGContextScaleCTM(UIGraphicsGetCurrentContext(), 1.0, -1.0);
-        CGContextTranslateCTM(UIGraphicsGetCurrentContext(), -self.frame.origin.x, -self.frame.origin.y);
-        CGContextDrawImage(UIGraphicsGetCurrentContext() , self.frame, scratched);
-        CGContextRestoreGState(UIGraphicsGetCurrentContext());
-        
+    override open func draw(_ rect: CGRect) {
+        UIGraphicsGetCurrentContext()?.saveGState()
+        contentLayer.render(in:  UIGraphicsGetCurrentContext()!)
+        UIGraphicsGetCurrentContext()?.restoreGState()
     }
     
-    
-    func renderLineFromPoint(start:CGPoint, end:CGPoint){
+    func renderLineFromPoint(_ start: CGPoint, end: CGPoint) {
+        alphaPixels.move(to: CGPoint(x: start.x, y: start.y))
+        alphaPixels.addLine(to: CGPoint(x: end.x, y: end.y))
+        alphaPixels.strokePath()
         
-        CGContextMoveToPoint(alpha_pixels, start.x, start.y);
-        CGContextAddLineToPoint(alpha_pixels, end.x, end.y);
-        CGContextStrokePath(alpha_pixels);
-        
-        self.setNeedsDisplay();
+        self.setNeedsDisplay()
     }
-    
-    
     
     internal func getAlphaPixelPercent() -> Double {
-        
-        let pixelData = CGDataProviderCopyData(CGImageGetDataProvider(CGBitmapContextCreateImage(alpha_pixels)))
+        let pixelData = alphaPixels.makeImage()?.dataProvider?.data
         let data: UnsafePointer<UInt8> = CFDataGetBytePtr(pixelData)
-        let w: size_t = CGImageGetWidth(CGBitmapContextCreateImage(alpha_pixels))
-        let h: size_t = CGImageGetHeight(CGBitmapContextCreateImage(alpha_pixels))
+        let imageWidth: size_t = alphaPixels.makeImage()!.width
+        let imageHeight: size_t = alphaPixels.makeImage()!.height
+        
         var byteIndex: Int  = 0
-        count = 0
-        for _ in 0...(w * h){
-            if(data[byteIndex+3] != 0)
-            {
-                count!++
+        var count: Double = 0
+        
+        for _ in 0...imageWidth * imageHeight {
+            if data[byteIndex] != 0 {
+                count += 1
             }
-            byteIndex += 1
+            byteIndex += 3
         }
         
-        return (count!) / Double(w * h)
+        return count / Double(imageWidth * imageHeight)
     }
-    
-    
 }
