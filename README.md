@@ -16,15 +16,7 @@ Check out [Get Started](https://guides.cocoapods.org/using/getting-started.html)
 
 To use ScratchCard in your project add the following 'Podfile' to your project
 
-<<<<<<< HEAD
-	source 'https://github.com/joehour/ScratchCard.git'
-	platform :ios, '8.0'
-	use_frameworks!
-
-	pod 'ScratchCard', '~> 1.0.4'
-=======
 	pod 'ScratchCard', '~> 1.0.10’
->>>>>>> swift3.0
 
 Then run:
 
@@ -40,7 +32,7 @@ Go ahead and import ScratchCard to your file.
 Example
 ----------
 
-####Please check out the Example project included.
+#### Please check out the Example project included.
 
 
 Usage
@@ -129,7 +121,7 @@ class ViewController: UIViewController, ScratchUIViewDelegate {
 }
 ```
 
-##License
+## License
 ScratchCard is available under the MIT License.
 
 Copyright © 2016 Joe.
