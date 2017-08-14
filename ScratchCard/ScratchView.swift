@@ -154,7 +154,7 @@ open class ScratchView: UIView {
     }
     
     internal func getAlphaPixelPercent() -> Double {
-        let pixelData = alphaPixels.makeImage()?.dataProvider?.data
+        let pixelData = provider.data
         let data: UnsafePointer<UInt8> = CFDataGetBytePtr(pixelData)
         let imageWidth: size_t = alphaPixels.makeImage()!.width
         let imageHeight: size_t = alphaPixels.makeImage()!.height
@@ -166,7 +166,7 @@ open class ScratchView: UIView {
             if data[byteIndex] != 0 {
                 count += 1
             }
-            byteIndex += 3
+            byteIndex += 4
         }
         
         return count / Double(imageWidth * imageHeight)
