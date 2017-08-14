@@ -9,9 +9,7 @@
 import Foundation
 import UIKit
 
-var couponImage: UIImageView!
-public var scratchCard: ScratchView!
-var coupon: String!
+
 var uiScratchWidth: CGFloat!
 
 @objc public protocol ScratchUIViewDelegate: class {
@@ -23,6 +21,9 @@ var uiScratchWidth: CGFloat!
 open class ScratchUIView: UIView, ScratchViewDelegate {
     
     open weak var delegate: ScratchUIViewDelegate!
+    public var scratchView: ScratchView!
+    var couponImage: UIImageView!
+    var coupon: String!
     open var scratchPosition: CGPoint!
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -30,7 +31,7 @@ open class ScratchUIView: UIView, ScratchViewDelegate {
     }
     
     open func getScratchPercent() -> Double {
-        return scratchCard.getAlphaPixelPercent()
+        return scratchView.getAlphaPixelPercent()
     }
     
     public init(frame: CGRect, Coupon: String, MaskImage: String, ScratchWidth: CGFloat) {
@@ -48,14 +49,14 @@ open class ScratchUIView: UIView, ScratchViewDelegate {
     
     fileprivate func Init() {
         couponImage = UIImageView(image: UIImage(named: coupon))
-        scratchCard = ScratchView(frame: self.frame, MaskImage: maskImage, ScratchWidth: uiScratchWidth)
+        scratchView = ScratchView(frame: self.frame, MaskImage: maskImage, ScratchWidth: uiScratchWidth)
         
         couponImage.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
-        scratchCard.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
-        scratchCard.delegate = self
+        scratchView.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
+        scratchView.delegate = self
         self.addSubview(couponImage)
-        self.addSubview(scratchCard)
-        self.bringSubview(toFront: scratchCard)
+        self.addSubview(scratchView)
+        self.bringSubview(toFront: scratchView)
         
     }
     
