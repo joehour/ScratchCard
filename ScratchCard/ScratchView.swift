@@ -56,20 +56,20 @@ open class ScratchView: UIView {
         height = (Int)(self.frame.height)
         
         self.isOpaque = false
-        let colorspace: CGColorSpace = CGColorSpaceCreateDeviceRGB()
+        let colorspace: CGColorSpace = CGColorSpaceCreateDeviceGray()
         
-        let pixels: CFMutableData = CFDataCreateMutable(nil, width * height * 4)
+        let pixels: CFMutableData = CFDataCreateMutable(nil, width * height)
         
-        alphaPixels = CGContext( data: CFDataGetMutableBytePtr(pixels), width: width, height: height, bitsPerComponent: 8, bytesPerRow: width * 4, space: colorspace, bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue)
+        alphaPixels = CGContext( data: CFDataGetMutableBytePtr(pixels), width: width, height: height, bitsPerComponent: 8, bytesPerRow: width, space: colorspace, bitmapInfo: CGImageAlphaInfo.none.rawValue)
         
         provider = CGDataProvider(data: pixels)
         
-        alphaPixels.setFillColor(red: 0, green: 0, blue: 0, alpha: 0)
-        alphaPixels.setStrokeColor(red: 255, green: 255, blue: 255, alpha: 1)
+        alphaPixels.setFillColor(UIColor.black.cgColor)
+        alphaPixels.setStrokeColor(UIColor.white.cgColor)
         alphaPixels.setLineWidth(scratchWidth)
         alphaPixels.setLineCap(CGLineCap.round)
         
-        let mask: CGImage = CGImage(maskWidth: width, height: height, bitsPerComponent: 8, bitsPerPixel: 32, bytesPerRow: width * 4, provider: provider, decode: nil, shouldInterpolate: false)!
+        let mask: CGImage = CGImage(maskWidth: width, height: height, bitsPerComponent: 8, bitsPerPixel: 8, bytesPerRow: width, provider: provider, decode: nil, shouldInterpolate: false)!
         var maskLayer = CAShapeLayer()
         maskLayer.frame =  CGRect(x:0, y:0, width:width, height:height)
         maskLayer.contents = mask
@@ -166,7 +166,7 @@ open class ScratchView: UIView {
             if data[byteIndex] != 0 {
                 count += 1
             }
-            byteIndex += 4
+            byteIndex += 1
         }
         
         return count / Double(imageWidth * imageHeight)
