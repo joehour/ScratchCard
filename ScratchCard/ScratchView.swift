@@ -62,15 +62,25 @@ open class ScratchView: UIView {
         
         alphaPixels = CGContext( data: CFDataGetMutableBytePtr(pixels), width: width, height: height, bitsPerComponent: 8, bytesPerRow: width, space: colorspace, bitmapInfo: CGImageAlphaInfo.none.rawValue)
         
-        provider = CGDataProvider(data: pixels)
-        
         alphaPixels.setFillColor(UIColor.black.cgColor)
         alphaPixels.setStrokeColor(UIColor.white.cgColor)
         alphaPixels.setLineWidth(scratchWidth)
         alphaPixels.setLineCap(CGLineCap.round)
+    
+        //fix mask initialization error on simulator device(issue9)
+        let pixelBuffer = alphaPixels.data?.bindMemory(to: UInt8.self, capacity: width * height)
+        var byteIndex: Int  = 0
+        for _ in 0...width * height {
+            if  pixelBuffer?[byteIndex] != 0 {
+                pixelBuffer?[byteIndex] = 0
+            }
+            byteIndex += 1
+        }
+        
+        provider = CGDataProvider(data: pixels)
         
         let mask: CGImage = CGImage(maskWidth: width, height: height, bitsPerComponent: 8, bitsPerPixel: 8, bytesPerRow: width, provider: provider, decode: nil, shouldInterpolate: false)!
-        var maskLayer = CAShapeLayer()
+        let maskLayer = CAShapeLayer()
         maskLayer.frame =  CGRect(x:0, y:0, width:width, height:height)
         maskLayer.contents = mask
         

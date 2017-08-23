@@ -16,7 +16,7 @@ Check out [Get Started](https://guides.cocoapods.org/using/getting-started.html)
 
 To use ScratchCard in your project add the following 'Podfile' to your project
 
-	pod 'ScratchCard', '~> 1.0.14’
+	pod 'ScratchCard', '~> 1.0.15'
 
 Then run:
 
