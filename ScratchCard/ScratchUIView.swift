@@ -22,8 +22,9 @@ open class ScratchUIView: UIView, ScratchViewDelegate {
     
     open weak var delegate: ScratchUIViewDelegate!
     public var scratchView: ScratchView!
-    var couponImage: UIImageView!
-    var coupon: String!
+    var maskImage: UIImageView!
+    var maskPath: String!
+    var coupponPath: String!
     open var scratchPosition: CGPoint!
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,8 +37,8 @@ open class ScratchUIView: UIView, ScratchViewDelegate {
     
     public init(frame: CGRect, Coupon: String, MaskImage: String, ScratchWidth: CGFloat) {
         super.init(frame: frame)
-        coupon = Coupon
-        maskImage = MaskImage
+        coupponPath = Coupon
+        maskPath = MaskImage
         uiScratchWidth = ScratchWidth
         self.Init()
     }
@@ -48,13 +49,13 @@ open class ScratchUIView: UIView, ScratchViewDelegate {
     }
     
     fileprivate func Init() {
-        couponImage = UIImageView(image: UIImage(named: coupon))
-        scratchView = ScratchView(frame: self.frame, MaskImage: maskImage, ScratchWidth: uiScratchWidth)
+        maskImage = UIImageView(image: UIImage(named: maskPath))
+        scratchView = ScratchView(frame: self.frame, CouponImage: coupponPath, ScratchWidth: uiScratchWidth)
         
-        couponImage.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
+        maskImage.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
         scratchView.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
         scratchView.delegate = self
-        self.addSubview(couponImage)
+        self.addSubview(maskImage)
         self.addSubview(scratchView)
         self.bringSubview(toFront: scratchView)
         
