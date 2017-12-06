@@ -46,10 +46,9 @@ class ViewController: UIViewController, ScratchUIViewDelegate {
     
     //Scratch Moved Event(optional)
     func scratchMoved(_ view: ScratchUIView) {
-        let scratchPercent: Double = scratchCard.getScratchPercent()
-        textField.text = String(format: "%.2f", scratchPercent * 100) + "%"
+        let scratchPercent: Double = self.scratchCard.getScratchPercent()
+        self.textField.text = String(format: "%.2f", scratchPercent * 100) + "%"
         print("scratchMoved")
-
         ////Get the Scratch Position in ScratchCard(coordinate origin is at the lower left corner)
         let position = Int(view.scratchPosition.x).description + "," + Int(view.scratchPosition.y).description
         print(position)

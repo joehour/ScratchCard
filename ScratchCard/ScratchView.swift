@@ -18,6 +18,7 @@ var firstTouch: Bool!
 var scratched: CGImage!
 var alphaPixels: CGContext!
 var provider: CGDataProvider!
+var pixelBuffer: UnsafeMutablePointer<UInt8>!
 var couponImage: String!
 var scratchWidth: CGFloat!
 var contentLayer: CALayer!
@@ -71,7 +72,7 @@ open class ScratchView: UIView {
         alphaPixels.setLineCap(CGLineCap.round)
     
         //fix mask initialization error on simulator device(issue9)
-        let pixelBuffer = alphaPixels.data?.bindMemory(to: UInt8.self, capacity: width * height)
+        pixelBuffer = alphaPixels.data?.bindMemory(to: UInt8.self, capacity: width * height)
         var byteIndex: Int  = 0
         for _ in 0...width * height {
             if  pixelBuffer?[byteIndex] != 0 {
@@ -179,21 +180,35 @@ open class ScratchView: UIView {
     }
     
     internal func getAlphaPixelPercent() -> Double {
-        let pixelData = provider.data
-        let data: UnsafePointer<UInt8> = CFDataGetBytePtr(pixelData)
-        let imageWidth: size_t = alphaPixels.makeImage()!.width
-        let imageHeight: size_t = alphaPixels.makeImage()!.height
-        
         var byteIndex: Int  = 0
         var count: Double = 0
-        
-        for _ in 0...imageWidth * imageHeight {
-            if data[byteIndex] != 0 {
+        let data = UnsafePointer(pixelBuffer)
+        for _ in 0...width * height {
+            if  data![byteIndex] != 0 {
                 count += 1
             }
             byteIndex += 1
         }
-        
-        return count / Double(imageWidth * imageHeight)
+        return count / Double(width * height)
     }
+    
+    // iOS 11.2 error
+    //    internal func getAlphaPixelPercent() -> Double {
+    //        let pixelData = provider.data
+    //        let data: UnsafePointer<UInt8> = CFDataGetBytePtr(pixelData)
+    //        let imageWidth: size_t = alphaPixels.makeImage()!.width
+    //        let imageHeight: size_t = alphaPixels.makeImage()!.height
+    //
+    //        var byteIndex: Int  = 0
+    //        var count: Double = 0
+    //
+    //        for _ in 0...imageWidth * imageHeight {
+    //            if data[byteIndex] != 0 {
+    //                count += 1
+    //            }
+    //            byteIndex += 1
+    //        }
+    //
+    //        return count / Double(imageWidth * imageHeight)
+    //    }
 }
