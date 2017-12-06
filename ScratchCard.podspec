@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name = "ScratchCard"
-s.version = "1.1.2"
+s.version = "1.1.3"
 s.license = "MIT"
 s.summary = "A ScratchCard view on iOS(swift)."
 s.homepage = "https://github.com/joehour/ScratchCard"

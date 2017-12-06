@@ -53,8 +53,12 @@ open class ScratchView: UIView {
     }
     
     fileprivate func Init() {
-        scratched = UIImage(named: couponImage)!.cgImage
-        
+        let image = processPixels(image: UIImage(named: couponImage)!)
+        if image != nil {
+            scratched = image?.cgImage
+        } else {
+            scratched = UIImage(named: couponImage)?.cgImage
+        }
         width = (Int)(self.frame.width)
         height = (Int)(self.frame.height)
         
@@ -90,7 +94,7 @@ open class ScratchView: UIView {
         contentLayer.frame =  CGRect(x:0, y:0, width:width, height:height)
         contentLayer.contents = scratched
         contentLayer.mask = maskLayer
-        self.layer.addSublayer(contentLayer) 
+        self.layer.addSublayer(contentLayer)
     }
     
     fileprivate func InitXib() {
@@ -139,7 +143,7 @@ open class ScratchView: UIView {
                 if firstTouch! {
                     firstTouch = false
                     previousLocation =  CGPoint(x: touch.previousLocation(in: self).x, y: touch.previousLocation(in: self).y)
-                    
+
                     position = previousLocation
                     
                     renderLineFromPoint(previousLocation, end: location)
@@ -211,4 +215,42 @@ open class ScratchView: UIView {
     //
     //        return count / Double(imageWidth * imageHeight)
     //    }
+    
+    func processPixels(image: UIImage) -> UIImage? {
+        guard let inputCGImage = image.cgImage else {
+            print("unable to get cgImage")
+            return nil
+        }
+        let colorSpace       = CGColorSpaceCreateDeviceRGB()
+        let width            = inputCGImage.width
+        let height           = inputCGImage.height
+        let bytesPerPixel    = 4
+        let bitsPerComponent = 8
+        let bytesPerRow      = bytesPerPixel * width
+        let bitmapInfo       = CGImageAlphaInfo.premultipliedLast.rawValue | CGBitmapInfo.byteOrder32Little.rawValue
+        
+        guard let context = CGContext(data: nil, width: width, height: height, bitsPerComponent: bitsPerComponent, bytesPerRow: bytesPerRow, space: colorSpace, bitmapInfo: bitmapInfo) else {
+            return nil
+        }
+        context.draw(inputCGImage, in: CGRect(x: 0, y: 0, width: width, height: height))
+        
+        guard let buffer = context.data else {
+            return nil
+        }
+        
+        let pixelBuffer = buffer.bindMemory(to: UInt8.self, capacity: width * height)
+        var byteIndex: Int  = 0
+        for _ in 0...width * height {
+            if  pixelBuffer[byteIndex] == 0 {
+                pixelBuffer[byteIndex] = 255
+                pixelBuffer[byteIndex+1] = 255
+                pixelBuffer[byteIndex+2] = 255
+                pixelBuffer[byteIndex+3] = 255
+            }
+            byteIndex += 4
+        }
+        let outputCGImage = context.makeImage()!
+        let outputImage = UIImage(cgImage: outputCGImage, scale: image.scale, orientation: image.imageOrientation)
+        return outputImage
+    }
 }
