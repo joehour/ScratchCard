@@ -253,4 +253,72 @@ open class ScratchView: UIView {
         let outputImage = UIImage(cgImage: outputCGImage, scale: image.scale, orientation: image.imageOrientation)
         return outputImage
     }
+    
+    // if you want to use other resources then ones integrated into the app
+    // eg. xcassets
+    // you can use this method to refresh image after returning from server
+    // example for using ScratchView with Alamofire:
+    // used Alamofire and AlamofireImage
+    /*
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        scratchCard = ScratchUIView(frame: CGRect(x:0, y:0, width:self.view.frame.width, height:self.view.frame.height), Coupon: viewModel.isSuccessful "backgroundImage", MaskImage: "overlay", ScratchWidth: CGFloat(40))
+     
+        let overLayImage = overLayImageUrl
+        scratchCard.maskImage.af_setImage(withURL: URL(string: overLayImage)!, placeholderImage: #imageLiteral(resourceName: "overlay"))
+     
+        let imageUrl = imageLocation // eg. s3 server
+        
+        Alamofire.request(imageUrl).responseImage { response in
+            
+            if let image = response.result.value {
+                self.scratchCard.scratchView.updateImageForOverlay(image: image)
+            }
+        }
+    }
+    */
+    func updateImageForOverlay(image: UIImage) {
+        let image = processPixels(image : image)
+        if image != nil {
+            scratched = image?.cgImage
+        } else {
+            scratched = UIImage(named: couponImage)?.cgImage
+        }
+        width = (Int)(self.frame.width)
+        height = (Int)(self.frame.height)
+        
+        self.isOpaque = false
+        
+        let colorspace: CGColorSpace = CGColorSpaceCreateDeviceGray()
+        
+        let pixels: CFMutableData = CFDataCreateMutable(nil, width * height)
+        
+        alphaPixels = CGContext( data: CFDataGetMutableBytePtr(pixels), width: width, height: height, bitsPerComponent: 8, bytesPerRow: width, space: colorspace, bitmapInfo: CGImageAlphaInfo.none.rawValue)
+        
+        alphaPixels.setFillColor(UIColor.black.cgColor)
+        alphaPixels.setStrokeColor(UIColor.white.cgColor)
+        alphaPixels.setLineWidth(scratchWidth)
+        alphaPixels.setLineCap(CGLineCap.round)
+        
+        pixelBuffer = alphaPixels.data?.bindMemory(to: UInt8.self, capacity: width * height)
+        var byteIndex: Int  = 0
+        for _ in 0...width * height {
+            if  pixelBuffer?[byteIndex] != 0 {
+                pixelBuffer?[byteIndex] = 0
+            }
+            byteIndex += 1
+        }
+        provider = CGDataProvider(data: pixels)
+        contentLayer.removeFromSuperlayer()
+        
+        maskLayer = CAShapeLayer()
+        maskLayer.frame =  CGRect(x:0, y:0, width:width, height:height)
+        maskLayer.backgroundColor = UIColor.clear.cgColor
+        
+        contentLayer = CALayer()
+        contentLayer.frame =  CGRect(x:0, y:0, width:width, height:height)
+        contentLayer.contents = scratched
+        contentLayer.mask = maskLayer
+        self.layer.addSublayer(contentLayer)
+    }
 }
