@@ -50,7 +50,8 @@ open class ScratchUIView: UIView, ScratchViewDelegate {
     
     fileprivate func Init() {
         maskImage = UIImageView(image: UIImage(named: maskPath))//UIImageView(image: processPixels(in: UIImage(named: maskPath)!))
-        scratchView = ScratchView(frame: self.frame, CouponImage: coupponPath, ScratchWidth: uiScratchWidth)
+        let couponImage = UIImage(named: coupponPath)
+        scratchView = ScratchView(frame: self.frame, couponImage: couponImage, ScratchWidth: uiScratchWidth)
         
         maskImage.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
         scratchView.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
