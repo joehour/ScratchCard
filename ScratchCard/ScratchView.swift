@@ -9,21 +9,6 @@
 import Foundation
 import UIKit
 
-var width: Int!
-var height: Int!
-var location: CGPoint!
-var previousLocation: CGPoint!
-var firstTouch: Bool!
-//var scratchable: CGImage!
-var scratched: CGImage!
-var alphaPixels: CGContext!
-var provider: CGDataProvider!
-var pixelBuffer: UnsafeMutablePointer<UInt8>!
-var couponImage: String!
-var scratchWidth: CGFloat!
-var contentLayer: CALayer!
-var maskLayer: CAShapeLayer!
-
 internal protocol ScratchViewDelegate: class {
     func began(_ view: ScratchView)
     func moved(_ view: ScratchView)
@@ -31,9 +16,24 @@ internal protocol ScratchViewDelegate: class {
 }
 
 open class ScratchView: UIView {
-    
+
+    private var width: Int!
+    private var height: Int!
+    private var location: CGPoint!
+    private var previousLocation: CGPoint!
+    private var firstTouch: Bool!
+    //private var scratchable: CGImage!
+    private var scratched: CGImage!
+    private var alphaPixels: CGContext!
+    private var provider: CGDataProvider!
+    private var pixelBuffer: UnsafeMutablePointer<UInt8>!
+    private var couponImage: String!
+    private var scratchWidth: CGFloat!
+    private var contentLayer: CALayer!
+    private var maskLayer: CAShapeLayer!
     internal weak var delegate: ScratchViewDelegate!
     internal var position: CGPoint!
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.Init()
