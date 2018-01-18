@@ -67,6 +67,7 @@ open class ScratchView: UIView {
         let colorspace: CGColorSpace = CGColorSpaceCreateDeviceGray()
         
         let pixels: CFMutableData = CFDataCreateMutable(nil, width * height)
+        CFDataSetLength(pixels, size) //Setting the size
         
         alphaPixels = CGContext( data: CFDataGetMutableBytePtr(pixels), width: width, height: height, bitsPerComponent: 8, bytesPerRow: width, space: colorspace, bitmapInfo: CGImageAlphaInfo.none.rawValue)
         
