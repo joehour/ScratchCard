@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B4285D6A1E77D4830008466D /* ScratchCard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4285D691E77D4830008466D /* ScratchCard.framework */; };
-		B4285D6B1E77D4830008466D /* ScratchCard.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B4285D691E77D4830008466D /* ScratchCard.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		94A8FA4C2B022E0100C776DA /* ScratchCard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A8FA4B2B022E0100C776DA /* ScratchCard.framework */; };
+		94A8FA4D2B022E0100C776DA /* ScratchCard.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94A8FA4B2B022E0100C776DA /* ScratchCard.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B4389DAD1DFFF7B100B3DDE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4389DAC1DFFF7B100B3DDE4 /* AppDelegate.swift */; };
 		B4389DAF1DFFF7B100B3DDE4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4389DAE1DFFF7B100B3DDE4 /* ViewController.swift */; };
 		B4389DB21DFFF7B100B3DDE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4389DB01DFFF7B100B3DDE4 /* Main.storyboard */; };
@@ -30,13 +30,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		B45007D01E07EFB000AB92E2 /* Embed Frameworks */ = {
+		94A8FA4E2B022E0100C776DA /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B4285D6B1E77D4830008466D /* ScratchCard.framework in Embed Frameworks */,
+				94A8FA4D2B022E0100C776DA /* ScratchCard.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -44,7 +44,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		B4285D691E77D4830008466D /* ScratchCard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ScratchCard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		94A8FA4B2B022E0100C776DA /* ScratchCard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ScratchCard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4389DA91DFFF7B100B3DDE4 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4389DAC1DFFF7B100B3DDE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4389DAE1DFFF7B100B3DDE4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -64,7 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4285D6A1E77D4830008466D /* ScratchCard.framework in Frameworks */,
+				94A8FA4C2B022E0100C776DA /* ScratchCard.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,13 +78,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		94A8FA4A2B022E0100C776DA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				94A8FA4B2B022E0100C776DA /* ScratchCard.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B4389DA01DFFF7B100B3DDE4 = {
 			isa = PBXGroup;
 			children = (
-				B4285D691E77D4830008466D /* ScratchCard.framework */,
 				B4389DAB1DFFF7B100B3DDE4 /* Example */,
 				B4389DC01DFFF7B100B3DDE4 /* ExampleTests */,
 				B4389DAA1DFFF7B100B3DDE4 /* Products */,
+				94A8FA4A2B022E0100C776DA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -131,7 +139,7 @@
 				B4389DA51DFFF7B100B3DDE4 /* Sources */,
 				B4389DA61DFFF7B100B3DDE4 /* Frameworks */,
 				B4389DA71DFFF7B100B3DDE4 /* Resources */,
-				B45007D01E07EFB000AB92E2 /* Embed Frameworks */,
+				94A8FA4E2B022E0100C776DA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -190,6 +198,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -314,12 +323,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -357,10 +367,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -376,11 +387,11 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Example/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Scratch.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -395,11 +406,11 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Example/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Scratch.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -413,7 +424,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = joe.ExampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Example.app/Example";
 			};
 			name = Debug;
@@ -428,7 +439,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = joe.ExampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Example.app/Example";
 			};
 			name = Release;
