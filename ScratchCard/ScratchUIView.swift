@@ -57,7 +57,7 @@ open class ScratchUIView: UIView, ScratchViewDelegate {
         scratchView.delegate = self
         self.addSubview(maskImage)
         self.addSubview(scratchView)
-        self.bringSubview(toFront: scratchView)
+        self.bringSubviewToFront(scratchView)
         
     }
     

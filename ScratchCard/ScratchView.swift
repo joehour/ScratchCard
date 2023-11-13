@@ -24,7 +24,7 @@ var scratchWidth: CGFloat!
 var contentLayer: CALayer!
 var maskLayer: CAShapeLayer!
 
-internal protocol ScratchViewDelegate: class {
+internal protocol ScratchViewDelegate: AnyObject {
     func began(_ view: ScratchView)
     func moved(_ view: ScratchView)
     func ended(_ view: ScratchView)
@@ -179,7 +179,7 @@ open class ScratchView: UIView {
         line.path = linePath.cgPath
         line.opacity = 1
         line.strokeColor = UIColor.white.cgColor
-        line.lineCap = "round"
+        line.lineCap = .init(rawValue: "round")
         layer.addSublayer(line)
     }
     
